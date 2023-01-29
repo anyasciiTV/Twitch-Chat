@@ -1,14 +1,3 @@
-/* Helpful information:
-
-Clips
-	Endpoint: https://api.twitch.tv/kraken/clips/ReliableSplendidInternPogChamp?on_site=1&api_version=5
-	Exmpample Clip: https://clips.twitch.tv/ReliableSplendidInternPogChamp
-	Missing thumbnail: https://clips-media-assets.twitch.tv/404-preview-86x45.jpg
-	Broken thumbnail: https://clips-media-assets.twitch.tv/vod-153090723-offset-1928.5-60-preview-1920x1080.jpg
-
-*/
-
-
 const chatEle = document.getElementById('chat');
 const twitchBadgeCache = {
 		data: { global: {} }
@@ -19,13 +8,10 @@ const bttvEmoteCache = {
 		urlTemplate: '//cdn.betterttv.net/emote/{{id}}/{{image}}'
 	};
 
-const krakenBase = 'https://api.twitch.tv/kraken/';
-const krakenClientID = '4g5an0yjebpf93392k4c5zll7d7xcec';
+const krakenBase = 'https://api.twitch.tv/kraken/'; // Legacy Twitch API version 5 (Kraken) decomissioned
+const krakenClientID = 'XXXXXXXXXX'; // Client ID is redacted
 
 const chatFilters = [
-		// '\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF', // Partial Latin-1 Supplement
-		// '\u0100-\u017F', // Latin Extended-A
-		// '\u0180-\u024F', // Latin Extended-B
 		'\u0250-\u02AF', // IPA Extensions
 		'\u02B0-\u02FF', // Spacing Modifier Letters
 		'\u0300-\u036F', // Combining Diacritical Marks
@@ -38,9 +24,8 @@ const chatFilters = [
 		'\u2580-\u259F', // Block Elements
 		'\u25A0-\u25FF', // Geometric Shapes
 		'\u2600-\u26FF', // Miscellaneous Symbols
-		// '\u2700-\u27BF', // Dingbats
 		'\u2800-\u28FF', // Braille
-		// '\u2C60-\u2C7F', // Latin Extended-C
+		'\u2C60-\u2C7F', // Latin Extended-C
 	];
 const chatFilter = new RegExp(`[${chatFilters.join('')}]`);
 
